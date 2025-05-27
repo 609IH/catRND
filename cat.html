@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Генератор случайных чисел</title>
+    <script>
+        function getRandomNumber() {
+            const min = parseInt(document.getElementById('min').value) || 0;
+            const max = parseInt(document.getElementById('max').value) || 100;
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        
+        function showRandomNumber() {
+            document.getElementById('result').innerText = getRandomNumber();
+        }
+        
+        // Генерируем число сразу при загрузке страницы
+        window.onload = showRandomNumber;
+    </script>
+</head>
+<body>
+    <h1>Ваше случайное число:</h1>
+    <div id="result" style="font-size: 2em; margin: 20px;"></div>
+    
+    <div style="margin-top: 30px;">
+        <label for="min">Минимум: </label>
+        <input type="number" id="min" value="1">
+        
+        <label for="max" style="margin-left: 10px;">Максимум: </label>
+        <input type="number" id="max" value="100">
+        
+        <button onclick="showRandomNumber()" style="margin-left: 10px;">Сгенерировать</button>
+    </div>
+</body>
+</html>
